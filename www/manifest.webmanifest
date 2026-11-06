@@ -1,0 +1,13 @@
+{
+  "name": "فرنوا | مدیریت هوشمند کسب‌وکار",
+  "short_name": "فرنوا",
+  "description": "مدیریت فاکتور، هزینه، مشتری، کالا و گزارش فروش",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6f9",
+  "theme_color": "#142d46",
+  "icons": [{"src":"assets/app-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

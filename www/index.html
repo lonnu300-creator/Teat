@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#142d46">
+  <meta name="description" content="فرنوا؛ مدیریت حرفه‌ای فاکتورها، هزینه‌ها، مشتریان، کالاها و گزارش‌های کسب‌وکار">
+  <meta name="color-scheme" content="light dark">
+  <title>فرنوا | مدیریت هوشمند کسب‌وکار</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><span>F</span><i></i></div>
+        <div><div class="brand-name">FARNAVA</div><div class="brand-sub">مدیریت هوشمند کسب‌وکار</div></div>
+      </div>
+      <div class="workspace-label">فضای کاری</div>
+      <nav class="side-nav" aria-label="منوی اصلی">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon" data-icon="grid"></span><span>داشبورد</span></button>
+        <button class="nav-item" data-page="invoices"><span class="nav-icon" data-icon="file"></span><span>فاکتورها</span><span class="nav-count" id="invoiceCount">۰</span></button>
+        <button class="nav-item" data-page="expenses"><span class="nav-icon" data-icon="wallet"></span><span>هزینه‌ها</span></button>
+        <button class="nav-item" data-page="customers"><span class="nav-icon" data-icon="users"></span><span>مشتریان</span></button>
+        <button class="nav-item" data-page="products"><span class="nav-icon" data-icon="box"></span><span>کالاها و خدمات</span></button>
+        <button class="nav-item" data-page="reports"><span class="nav-icon" data-icon="chart"></span><span>گزارش‌ها و نمودارها</span></button>
+        <div class="nav-divider"></div>
+        <button class="nav-item" data-page="backup"><span class="nav-icon" data-icon="cloud"></span><span>پشتیبان‌گیری</span><span class="pro-mini">PRO</span></button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon" data-icon="settings"></span><span>تنظیمات</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="premium-card"><div class="premium-icon">✦</div><div><strong>Farnava Premium</strong><small id="premiumSideStatus">نسخه توسعه · آماده اتصال بازار</small></div></div>
+        <div class="sidebar-foot">نسخه 0.9.0 · پیش‌انتشار</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-leading">
+          <button class="icon-button mobile-menu" id="menuToggle" aria-label="باز کردن منو"><span data-icon="menu"></span></button>
+          <div><div class="eyebrow" id="pageEyebrow">نمای کلی کسب‌وکار</div><h1 id="pageTitle">داشبورد</h1></div>
+        </div>
+        <div class="topbar-actions">
+          <div class="today-chip"><span data-icon="calendar"></span><span id="todayLabel"></span></div>
+          <button class="icon-button" id="themeToggle" title="تغییر پوسته" aria-label="تغییر پوسته"><span data-icon="moon"></span></button>
+          <button class="profile-chip" id="profileShortcut"><span class="avatar">ف</span><span class="profile-text"><b id="businessNameTop">کسب‌وکار من</b><small id="accountStatusTop">مدیر حساب</small></span><span data-icon="chevron-down"></span></button>
+        </div>
+      </header>
+      <div class="demo-banner" id="demoBanner" hidden><span data-icon="info"></span><span>حالت پیش‌نمایش توسعه فعال است؛ برای انتشار، کلیدهای بازار و سرور را در تنظیمات فنی وارد کنید.</span><button id="dismissBanner">متوجه شدم</button></div>
+      <section class="page-content" id="pageContent" aria-live="polite"></section>
+      <nav class="mobile-nav" aria-label="ناوبری موبایل">
+        <button class="mobile-nav-item active" data-page="dashboard"><span data-icon="grid"></span><small>خانه</small></button>
+        <button class="mobile-nav-item" data-page="invoices"><span data-icon="file"></span><small>فاکتورها</small></button>
+        <button class="mobile-nav-item" data-page="expenses"><span data-icon="wallet"></span><small>هزینه‌ها</small></button>
+        <button class="mobile-nav-item" data-page="reports"><span data-icon="chart"></span><small>گزارش</small></button>
+        <button class="mobile-nav-item" data-page="settings"><span data-icon="settings"></span><small>بیشتر</small></button>
+      </nav>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-header"><div><div class="eyebrow" id="modalEyebrow">فرم اطلاعات</div><h2 id="modalTitle">عنوان</h2></div><button class="icon-button" data-action="close-modal" aria-label="بستن"><span data-icon="close"></span></button></header>
+      <div class="modal-body" id="modalBody"></div>
+      <footer class="modal-footer" id="modalFooter"></footer>
+    </section>
+  </div>
+  <input type="file" id="backupFileInput" accept="application/json,.json" hidden>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <script src="js/core.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/exporters.js"></script>
+  <script src="js/config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
